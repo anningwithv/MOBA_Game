@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOBA_Game", "MOBA_Game.csproj", "{4A0A114C-D07B-A4C6-59CA-9EB18C0B15A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOBA_Game.Plugins", "MOBA_Game.Plugins.csproj", "{C3C9D5D0-A067-1F4A-D032-D83E23438C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOBA_Game.Editor", "MOBA_Game.Editor.csproj", "{3450E4D9-780B-5F8D-88F7-D82DF9727971}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A0A114C-D07B-A4C6-59CA-9EB18C0B15A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0A114C-D07B-A4C6-59CA-9EB18C0B15A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0A114C-D07B-A4C6-59CA-9EB18C0B15A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0A114C-D07B-A4C6-59CA-9EB18C0B15A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3C9D5D0-A067-1F4A-D032-D83E23438C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3C9D5D0-A067-1F4A-D032-D83E23438C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3C9D5D0-A067-1F4A-D032-D83E23438C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3C9D5D0-A067-1F4A-D032-D83E23438C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3450E4D9-780B-5F8D-88F7-D82DF9727971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3450E4D9-780B-5F8D-88F7-D82DF9727971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3450E4D9-780B-5F8D-88F7-D82DF9727971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3450E4D9-780B-5F8D-88F7-D82DF9727971}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
