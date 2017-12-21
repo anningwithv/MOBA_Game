@@ -93,6 +93,7 @@
     <Compile Include="Assets\MOBA_Game\Scripts\DelegateDefines.cs" />
     <Compile Include="Assets\MOBA_Game\Scripts\Photon\PhotonGameManager.cs" />
     <Compile Include="Assets\MOBA_Game\Scripts\Photon\PhotonLobbyManager.cs" />
+    <Compile Include="Assets\MOBA_Game\Scripts\Player\PlayerAnimController.cs" />
     <Compile Include="Assets\MOBA_Game\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\MOBA_Game\Scripts\Player\PlayerInputController.cs" />
     <Compile Include="Assets\MOBA_Game\Scripts\Player\PlayerNetwork.cs" />

@@ -35,4 +35,8 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupTimes
   - TaggedPlayer
+  - DoMove
+  - DoIdle
+  - PlayIdleAnim
+  - PlayMoveAnim
   DisableAutoOpenWizard: 1
