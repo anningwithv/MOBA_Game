@@ -21,9 +21,10 @@ public class PhotonGameManager : PunBehaviour
 
     private void SpawnPlayer()
     {
-        Vector3 position = new Vector3(33.5f, 1.5f, 20.5f);
+        Vector3 position = new Vector3(1f, 1f, 10f);
 
-        GameObject newPlayerObject = PhotonNetwork.Instantiate("Robot Kyle RPG", position, Quaternion.identity, 0);
+        GameObject newPlayerObject = PhotonNetwork.Instantiate("sparcher", position, Quaternion.identity, 0);
+        newPlayerObject.GetComponent<PlayerInputController>().m_isControlable = true;
 
         Camera.Target = newPlayerObject.transform;
     }
