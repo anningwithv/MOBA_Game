@@ -9,6 +9,8 @@ public class PhotonGameManager : PunBehaviour
 
     public RPGCamera Camera;
 
+    internal PlayerController m_localPlayer = null;
+
     private void Awake()
     {
         Instance = this;
@@ -25,6 +27,7 @@ public class PhotonGameManager : PunBehaviour
 
         GameObject newPlayerObject = PhotonNetwork.Instantiate("sparcher", position, Quaternion.identity, 0);
         newPlayerObject.GetComponent<PlayerInputController>().m_isControlable = true;
+        m_localPlayer = newPlayerObject.GetComponent<PlayerController>();
 
         Camera.Target = newPlayerObject.transform;
     }

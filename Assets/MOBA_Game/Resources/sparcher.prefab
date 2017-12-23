@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 114214316634638924}
   - component: {fileID: 114884152666204096}
   - component: {fileID: 114431579729772818}
+  - component: {fileID: 114065718904297150}
   m_Layer: 0
   m_Name: sparcher
   m_TagString: Untagged
@@ -917,6 +918,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114065718904297150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355ea82403dca924d80115d0ca64b3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bulletPrefab: {fileID: 114606557619802510, guid: 238049ce5adb11d4da91a18a5652bd58,
+    type: 2}
 --- !u!114 &114214316634638924
 MonoBehaviour:
   m_ObjectHideFlags: 1

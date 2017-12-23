@@ -39,4 +39,7 @@ MonoBehaviour:
   - DoIdle
   - PlayIdleAnim
   - PlayMoveAnim
+  - Finish
+  - SetAnimParamByState
+  - PlayShootAnim
   DisableAutoOpenWizard: 1

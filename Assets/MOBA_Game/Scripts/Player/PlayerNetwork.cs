@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerNetwork : PunBehaviour
 {
     private Rigidbody m_rgb;
+    private PlayerController m_playerController = null;
 
     private Vector3 m_correctPlayerPos;
     private Quaternion m_correctPlayerRot;
@@ -15,6 +16,7 @@ public class PlayerNetwork : PunBehaviour
     void Awake ()
     {
         m_rgb = GetComponent<Rigidbody>();
+        m_playerController = GetComponent<PlayerController>();
     }
 
     /// <summary>
@@ -43,6 +45,7 @@ public class PlayerNetwork : PunBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(m_rgb.velocity);
+            stream.SendNext(m_playerController.CurState);
         }
         else
         {
@@ -50,6 +53,7 @@ public class PlayerNetwork : PunBehaviour
             m_correctPlayerPos = (Vector3)stream.ReceiveNext();
             m_correctPlayerRot = (Quaternion)stream.ReceiveNext();
             m_currentVelocity = (Vector3)stream.ReceiveNext();
+            m_playerController.CurState = (PlayerController.State)stream.ReceiveNext();
             m_updateTime = Time.time;
         }
     }
