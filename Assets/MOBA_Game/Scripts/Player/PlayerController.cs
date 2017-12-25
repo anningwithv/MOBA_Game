@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     {
         Idle,
         Move,
-        Shoot
+        Shoot,
+        Dead
     }
 
     private PhotonView m_photonView = null;
@@ -83,6 +84,11 @@ public class PlayerController : MonoBehaviour
             m_animController.DoShoot();
             StartCoroutine(Fire());
         }
+        else if (m_curState == State.Dead)
+        {
+            Debug.Log("Set state dead");
+            m_animController.DoDead();
+        }
         //m_animController.PlayAnimation();
     }
 
@@ -94,6 +100,21 @@ public class PlayerController : MonoBehaviour
 
         m_agent.SetDestination(pos);
     }
+
+    public void UnderAttack(int damage)
+    {
+        Debug.Log("Player under attack");
+        SetState(State.Dead);
+        //OnUnderAttack();
+
+        //m_photonView.RPC("OnUnderAttack", PhotonTargets.Others);
+    }
+
+    //[PunRPC]
+    //private void OnUnderAttack()
+    //{
+    //    Debug.Log("Player attacked : " + transform.name);
+    //}
 
     private IEnumerator Fire()
     {

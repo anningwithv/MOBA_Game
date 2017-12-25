@@ -7,19 +7,10 @@ using Photon;
 // Base class to create bullet effects
 public class BulletEffect : PunBehaviour
 {
-    // this method is called when a bullet hits a car
-    public virtual void Hit(GameObject car)
+    // this method is called when a bullet hits a player
+    public virtual void Hit(GameObject go)
     {
 
-    }
-
-    // destroy this bullet and other copies over network in case of hit the track or other gameobjects with tag "World"
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "World")
-        {
-            PreFinish();
-        }
     }
 
     // this method takes care of call Finish on the current instance and on other instances over network

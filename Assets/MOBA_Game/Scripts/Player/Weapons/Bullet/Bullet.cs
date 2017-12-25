@@ -22,7 +22,7 @@ public class Bullet : PunBehaviour
     public bool m_isLocal;
 
     private bool m_wasHitCalled = false;
-
+    internal PlayerController m_owner = null;
     private BulletEffect m_bulletEffect;
 
     public void Start()
@@ -52,15 +52,36 @@ public class Bullet : PunBehaviour
     }
 
     // calls the effect attached to this bullet
-    public void EventHit(GameObject go)
+    private void EventHit(GameObject go)
     {
         m_bulletEffect.Hit(go);
     }
 
     // destroys the bullet and its copies over network
-    public void EventWasHit()
+    private void EventWasHit()
     {
         m_bulletEffect.PreFinish();
     }
 
+    // destroy this bullet and other copies over network in case of hit the track or other gameobjects with tag "World"
+    public void OnTriggerEnter(Collider other)
+    {
+        if (!m_isLocal)
+            return;
+
+        if (other.tag == "World")
+        {
+            EventWasHit();
+            return;
+        }
+
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player != null && player != m_owner)
+        {
+            EventWasHit();
+
+            player.UnderAttack(1);
+            return;
+        }
+    }
 }

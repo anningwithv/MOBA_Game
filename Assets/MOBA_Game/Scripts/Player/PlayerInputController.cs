@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerInputController : MonoBehaviour
@@ -33,6 +34,17 @@ public class PlayerInputController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+#if UNITY_ANDROID || UNITY_IPHONE
+            //移动端判断如下
+            if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+#else
+            //PC端判断如下
+            if (EventSystem.current.IsPointerOverGameObject())
+#endif
+            {
+                Debug.Log("Is Clicking UI");
+                return;
+            }
             //摄像机到点击位置的的射线  
             Ray ray = m_mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

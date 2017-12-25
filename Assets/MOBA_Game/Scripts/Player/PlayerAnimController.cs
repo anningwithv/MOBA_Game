@@ -43,6 +43,13 @@ public class PlayerAnimController : MonoBehaviour
         m_photonView.RPC("PlayShootAnim", PhotonTargets.Others);
     }
 
+    public void DoDead()
+    {
+        PlayDeadAnim();
+
+        m_photonView.RPC("PlayDeadAnim", PhotonTargets.Others);
+    }
+
     [PunRPC]
     private void PlayMoveAnim()
     {
@@ -71,6 +78,14 @@ public class PlayerAnimController : MonoBehaviour
         m_anim.SetBool("IsMove", false);
         m_anim.SetBool("IsIdle", false);
         m_anim.SetBool("IsShoot", true);
+    }
+
+    [PunRPC]
+    private void PlayDeadAnim()
+    {
+        Debug.Log("Play Dead Anim");
+
+        m_anim.SetBool("IsDead", true);
     }
 
     [PunRPC]

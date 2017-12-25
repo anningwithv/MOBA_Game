@@ -42,4 +42,7 @@ MonoBehaviour:
   - Finish
   - SetAnimParamByState
   - PlayShootAnim
+  - OnPlayerUnderAttacked
+  - OnUnderAttack
+  - PlayDeadAnim
   DisableAutoOpenWizard: 1
