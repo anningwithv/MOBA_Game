@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour
         Dead
     }
 
-    private PhotonView m_photonView = null;
-    private PlayerAnimController m_animController = null;
+    internal PlayerAnimController m_animController = null;
+	internal PlayerInputController m_inputController = null;
+
+	private PhotonView m_photonView = null;
     private Rigidbody m_rgd = null;
     private Weapon m_weapon = null;
 
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     private void Awake ()
     {
         m_photonView = GetComponent<PhotonView>();
+		m_inputController = GetComponent<PlayerInputController>();
         m_animController = GetComponent<PlayerAnimController>();
 
         m_rgd = GetComponent<Rigidbody>();
@@ -110,11 +113,15 @@ public class PlayerController : MonoBehaviour
         //m_photonView.RPC("OnUnderAttack", PhotonTargets.Others);
     }
 
-    //[PunRPC]
-    //private void OnUnderAttack()
-    //{
-    //    Debug.Log("Player attacked : " + transform.name);
-    //}
+	public void FireToTargetPos(Vector3 pos)
+	{
+		m_agent.isStopped = true;
+
+		transform.LookAt(new Vector3(pos.x, transform.position.y, pos.z));
+
+		SetState (State.Shoot);
+	}
+
 
     private IEnumerator Fire()
     {

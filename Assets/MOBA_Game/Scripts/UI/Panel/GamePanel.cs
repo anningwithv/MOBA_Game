@@ -7,11 +7,14 @@ public class GamePanel : MonoBehaviour
 {
     public Button m_btnFire = null;
 
-	void Start ()
+	private PlayerInputController m_playerInputContoller = null;
+
+	private void Start ()
     {
         m_btnFire.onClick.AddListener(delegate()
         {
-            PhotonGameManager.Instance.m_localPlayer.SetState(PlayerController.State.Shoot);
+            //PhotonGameManager.Instance.m_localPlayer.SetState(PlayerController.State.Shoot);
+			PhotonGameManager.Instance.m_localPlayer.m_inputController.m_wantClickToFire = true;
         });
 
     }

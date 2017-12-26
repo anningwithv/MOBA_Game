@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
 
     internal float SpeedX { get; set; }
     internal float SpeedY { get; set; }
+	internal bool m_wantClickToFire = false;
 
     private PlayerController m_player = null;
     private Camera m_mainCamera = null;
@@ -58,7 +59,15 @@ public class PlayerInputController : MonoBehaviour
                 //点击位置坐标  
                 Vector3 point = hit.point;
 
-                m_player.Move(point);
+				if (m_wantClickToFire) 
+				{
+					m_wantClickToFire = false;
+					m_player.FireToTargetPos (point);
+				} 
+				else 
+				{
+					m_player.Move (point);
+				}
             }
         }
     }
