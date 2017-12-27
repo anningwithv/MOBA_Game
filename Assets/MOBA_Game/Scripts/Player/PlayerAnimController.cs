@@ -36,7 +36,7 @@ public class PlayerAnimController : MonoBehaviour
         m_photonView.RPC("PlayIdleAnim", PhotonTargets.Others);
     }
 
-    public void DoShoot()
+    public void DoAttack()
     {
         PlayShootAnim();
 
@@ -103,7 +103,7 @@ public class PlayerAnimController : MonoBehaviour
                 m_anim.SetBool("IsIdle", false);
                 m_anim.SetBool("IsShoot", false);
                 break;
-            case PlayerController.State.Shoot:
+            case PlayerController.State.Attack:
                 m_anim.SetBool("IsMove", false);
                 m_anim.SetBool("IsIdle", false);
                 m_anim.SetBool("IsShoot", true);

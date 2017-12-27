@@ -13,8 +13,15 @@ public class GamePanel : MonoBehaviour
     {
         m_btnFire.onClick.AddListener(delegate()
         {
-            //PhotonGameManager.Instance.m_localPlayer.SetState(PlayerController.State.Shoot);
-			PhotonGameManager.Instance.m_localPlayer.m_inputController.m_wantClickToFire = true;
+			PlayerController player = PhotonGameManager.Instance.m_localPlayer;
+
+				if(player.m_attackRange == PlayerController.AttackRange.Remote){
+					player.m_inputController.m_wantClickToFire = true;
+				}
+				else
+				{
+					player.SetState(PlayerController.State.Attack);
+				}
         });
 
     }

@@ -7,7 +7,8 @@ public class PhotonGameManager : PunBehaviour
 {
     public static PhotonGameManager Instance = null;
 
-    public RPGCamera Camera;
+	public string m_playerName = string.Empty;
+    //public RPGCamera Camera;
 
     internal PlayerController m_localPlayer = null;
 
@@ -25,11 +26,11 @@ public class PhotonGameManager : PunBehaviour
     {
         Vector3 position = new Vector3(1f, 1f, 10f);
 
-        GameObject newPlayerObject = PhotonNetwork.Instantiate("sparcher", position, Quaternion.identity, 0);
+		GameObject newPlayerObject = PhotonNetwork.Instantiate(m_playerName, position, Quaternion.identity, 0);
         newPlayerObject.GetComponent<PlayerInputController>().m_isControlable = true;
         m_localPlayer = newPlayerObject.GetComponent<PlayerController>();
 
-        Camera.Target = newPlayerObject.transform;
+        //Camera.Target = newPlayerObject.transform;
     }
 
     public virtual void OnPhotonRandomJoinFailed()

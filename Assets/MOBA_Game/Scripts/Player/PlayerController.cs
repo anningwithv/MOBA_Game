@@ -9,9 +9,17 @@ public class PlayerController : MonoBehaviour
     {
         Idle,
         Move,
-        Shoot,
+        Attack,
         Dead
     }
+
+	public enum AttackRange
+	{
+		Remote,
+		Melee
+	}
+
+	public AttackRange m_attackRange = AttackRange.Remote;
 
     internal PlayerAnimController m_animController = null;
 	internal PlayerInputController m_inputController = null;
@@ -81,10 +89,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Set state move");
             m_animController.DoMove();
         }
-        else if (m_curState == State.Shoot)
+        else if (m_curState == State.Attack)
         {
             Debug.Log("Set state shoot");
-            m_animController.DoShoot();
+            m_animController.DoAttack();
             StartCoroutine(Fire());
         }
         else if (m_curState == State.Dead)
@@ -120,14 +128,16 @@ public class PlayerController : MonoBehaviour
 
 		transform.LookAt(new Vector3(pos.x, transform.position.y, pos.z));
 
-		SetState (State.Shoot);
+		SetState (State.Attack);
 	}
 
 
     private IEnumerator Fire()
     {
-        yield return new WaitForSeconds(1.5f);
-        m_weapon.Fire();
+		if (m_attackRange == AttackRange.Remote) {
+			yield return new WaitForSeconds (1.5f);
+		} 
+        m_weapon.Attack();
 
         yield return new WaitForSeconds(0.5f);
         SetState(State.Idle);
