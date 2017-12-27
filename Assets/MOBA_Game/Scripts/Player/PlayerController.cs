@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
 
         transform.LookAt(new Vector3(pos.x, transform.position.y, pos.z));
 
+		m_agent.isStopped = false;
         m_agent.SetDestination(pos);
     }
 
